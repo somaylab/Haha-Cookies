@@ -1,0 +1,1002 @@
+/* ═══════════════════════════════════════════════════════════════
+   HAHA GET — NEO-BRUTALISM / INDUSTRIAL STEALTH THEME
+   Characteristics: Thick black borders, 3px-4px hard offset shadows,
+   stark contrast, monospace typography, chunky tactile press states,
+   high-voltage yellow (#FFE600), acid lime (#00FF66), cyan (#00F0FF),
+   signal red (#FF2A55). Zero fuzzy blur. 100% Raw Power.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Global Reset & Box Sizing ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Surface & Base */
+  --bg-app: #0c0c0e;
+  --bg-surface: #141418;
+  --bg-surface-alt: #1a1a20;
+  --bg-input: #08080a;
+
+  /* Brutalist Hard Inks & Strokes */
+  --ink-primary: #ffffff;
+  --ink-secondary: #c2c2ce;
+  --ink-muted: #787886;
+  --ink-black: #000000;
+
+  /* Neo-Brutalist High Voltage Accents */
+  --brutal-yellow: #ffe600;
+  --brutal-lime: #00ff66;
+  --brutal-cyan: #00f0ff;
+  --brutal-red: #ff2a55;
+  --brutal-orange: #ff7a00;
+  --brutal-white: #ffffff;
+  --brutal-black: #000000;
+
+  /* Hard Borders & Offsets */
+  --border-width: 2px;
+  --border-thick: 3px;
+  --border-color: #000000;
+  --border-light: #2a2a34;
+  --border-yellow: #ffe600;
+
+  /* Hard Box Shadows (No blur, crisp architectural edge) */
+  --shadow-sm: 2px 2px 0 #000000;
+  --shadow-md: 4px 4px 0 #000000;
+  --shadow-lg: 6px 6px 0 #000000;
+  --shadow-yellow: 4px 4px 0 #ffe600;
+  --shadow-white: 3px 3px 0 #ffffff;
+
+  /* Monospace & Industrial Typography */
+  --font-mono: "JetBrains Mono", "SF Mono", "Consolas", "Liberation Mono", Menlo, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Radii - Pure Brutalist Zero/Micro Radii */
+  --radius-zero: 0px;
+  --radius-sm: 2px;
+}
+
+html {
+  font-size: 13px;
+  background: var(--bg-app);
+  width: 760px;
+  height: 540px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  width: 760px;
+  height: 540px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-mono);
+  background: var(--bg-app);
+  color: var(--ink-primary);
+  line-height: 1.4;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  border: var(--border-thick) solid var(--brutal-yellow);
+}
+
+/* ─── App Container ─── */
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ─── Brutalist Header ─── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-surface);
+  border-bottom: var(--border-thick) solid var(--border-color);
+  box-shadow: 0 3px 0 var(--border-light);
+  flex-shrink: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #101116;
+  color: #f5f7fa;
+  border: 2px solid #303440;
+  box-shadow: 2px 2px 0 #000000;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: -0.05em;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.logo-icon .logo-mark {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+}
+
+.logo-icon .logo-mark::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 45%;
+  height: 3px;
+  background: var(--brutal-yellow);
+  z-index: 1;
+}
+
+.app-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-title-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+  padding: 1px 5px;
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.05em;
+}
+
+.domain-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: var(--bg-input);
+  color: var(--brutal-cyan);
+  border: var(--border-width) solid var(--border-light);
+  box-shadow: 2px 2px 0 var(--border-color);
+  font-family: var(--font-mono);
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.entry-count {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: var(--bg-input);
+  color: var(--brutal-yellow);
+  padding: 4px 8px;
+  border: var(--border-width) solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Brutalist Toolbar ─── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--bg-surface-alt);
+  border-bottom: var(--border-width) solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.search-prompt {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--brutal-yellow);
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 7px 10px 7px 26px;
+  border-radius: var(--radius-zero);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--ink-primary);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  box-shadow: inset 2px 2px 0 #000000;
+  outline: none;
+  transition: border-color 0.1s, box-shadow 0.1s;
+}
+
+.search-input::placeholder {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.search-input:focus {
+  border-color: var(--brutal-yellow);
+  box-shadow: 0 0 0 1px var(--brutal-yellow), inset 2px 2px 0 #000000;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.btn-separator {
+  width: 2px;
+  height: 22px;
+  background: var(--border-light);
+  margin: 0 2px;
+}
+
+/* ─── Brutalist Chunky Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: var(--radius-zero);
+  border: var(--border-width) solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000000;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 #000000;
+}
+
+.btn-icon {
+  padding: 6px 8px;
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  border-color: var(--border-color);
+}
+
+.btn-icon:hover {
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+}
+
+.btn-primary {
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+  border-color: var(--border-color);
+}
+
+.btn-primary:hover {
+  background: #fff033;
+}
+
+.btn-secondary {
+  background: var(--brutal-cyan);
+  color: var(--ink-black);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: #4df4ff;
+}
+
+.btn-danger {
+  background: var(--brutal-red);
+  color: var(--ink-primary);
+  border-color: var(--border-color);
+}
+
+.btn-danger:hover {
+  background: #ff476e;
+}
+
+/* ─── Entry Data Grid (Table) ─── */
+.table-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--bg-app);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brutalist Scrollbar */
+.table-container::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-input);
+  border-left: 2px solid var(--border-color);
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--brutal-yellow);
+  border: 1px solid var(--border-color);
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+.entry-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: var(--font-mono);
+}
+
+.entry-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.entry-table th {
+  padding: 7px 8px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-black);
+  background: var(--brutal-yellow);
+  border-bottom: var(--border-thick) solid var(--border-color);
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.entry-table th:last-child {
+  border-right: none;
+}
+
+.th-name { width: 17%; }
+.th-value { width: 23%; }
+.th-domain { width: 16%; }
+.th-path { width: 6%; }
+.th-expires { width: 15%; }
+.th-flags { width: 10%; }
+.th-actions { width: 13%; }
+
+.entry-table td {
+  padding: 6px 8px;
+  font-size: 0.78rem;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--ink-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.entry-table tbody tr {
+  background: var(--bg-app);
+  transition: background 0.05s ease;
+}
+
+.entry-table tbody tr:nth-child(even) {
+  background: var(--bg-surface);
+}
+
+.entry-table tbody tr:hover {
+  background: #202028;
+  color: var(--ink-primary);
+}
+
+.cell-name {
+  color: var(--brutal-white) !important;
+  font-weight: 700;
+}
+
+.cell-value {
+  color: var(--ink-muted) !important;
+}
+
+.cell-domain {
+  color: var(--brutal-cyan) !important;
+}
+
+.cell-path {
+  color: var(--ink-secondary) !important;
+}
+
+.cell-expires {
+  font-size: 0.72rem !important;
+}
+
+.cell-flags {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  padding-top: 7px !important;
+}
+
+/* Brutalist Flag Badges */
+.b-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 4px;
+  font-size: 0.62rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 1px solid var(--border-color);
+  box-shadow: 1px 1px 0 #000;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.b-sec {
+  background: var(--brutal-lime);
+  color: var(--ink-black);
+}
+
+.b-http {
+  background: var(--brutal-orange);
+  color: var(--ink-black);
+}
+
+.b-same {
+  background: var(--brutal-cyan);
+  color: var(--ink-black);
+}
+
+/* Table Actions (Chunky Square Buttons) */
+.cell-actions {
+  white-space: nowrap !important;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-zero);
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 1px 1px 0 #000;
+  transition: transform 0.05s, box-shadow 0.05s, background 0.05s;
+  margin-right: 2px;
+}
+
+.btn-action:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.btn-action:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0px 0px 0 #000;
+}
+
+.btn-copy:hover {
+  background: var(--brutal-cyan);
+  color: var(--ink-black);
+}
+
+.btn-edit:hover {
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+}
+
+.btn-delete:hover {
+  background: var(--brutal-red);
+  color: var(--ink-primary);
+}
+
+/* ─── Empty & Loading States ─── */
+.empty-state,
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  gap: 12px;
+  border: 2px dashed var(--border-light);
+  margin: 16px;
+  background: var(--bg-surface);
+  flex: 1;
+  min-height: 220px;
+}
+
+.empty-state-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.empty-state p,
+.loading-state p {
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brutal-yellow);
+  letter-spacing: 0.05em;
+}
+
+.empty-hint {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  text-align: center;
+  max-width: 320px;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid var(--border-light);
+  border-top-color: var(--brutal-yellow);
+  border-radius: var(--radius-zero);
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Neo-Brutalist Modals ─── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--bg-surface);
+  border: var(--border-thick) solid var(--brutal-yellow);
+  box-shadow: var(--shadow-lg), 0 0 0 2px var(--border-color);
+  border-radius: var(--radius-zero);
+  width: 92%;
+  max-width: 580px;
+  max-height: 480px;
+  display: flex;
+  flex-direction: column;
+  transform: translate(-3px, -3px);
+  transition: transform 0.15s ease;
+}
+
+.modal-overlay.active .modal {
+  transform: translate(0, 0);
+}
+
+.modal-sm {
+  max-width: 420px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+  border-bottom: var(--border-thick) solid var(--border-color);
+}
+
+.modal-header h2 {
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: var(--border-width) solid var(--border-color);
+  background: var(--ink-black);
+  color: var(--brutal-yellow);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+  transition: transform 0.05s, background 0.05s, color 0.05s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: var(--brutal-red);
+  color: var(--ink-primary);
+  transform: translate(-1px, -1px);
+}
+
+.modal-close:active {
+  transform: translate(1px, 1px);
+}
+
+.modal-body {
+  padding: 14px 16px;
+  overflow-y: auto;
+  flex: 1;
+  background: var(--bg-surface);
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-surface-alt);
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+.modal-hint {
+  font-size: 0.78rem;
+  color: var(--ink-secondary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+  border-left: 3px solid var(--brutal-cyan);
+  padding-left: 8px;
+}
+
+/* ─── Export Format Tabs ─── */
+.format-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+  padding: 3px;
+  background: var(--bg-input);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: inset 1px 1px 0 #000;
+}
+
+.format-tab {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-zero);
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.08s ease;
+}
+
+.format-tab:hover {
+  color: var(--ink-primary);
+}
+
+.format-tab.active {
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.code-output,
+.code-input {
+  width: 100%;
+  min-height: 180px;
+  max-height: 250px;
+  padding: 10px;
+  border-radius: var(--radius-zero);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--brutal-lime);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  box-shadow: inset 2px 2px 0 #000;
+}
+
+.code-output:focus,
+.code-input:focus {
+  border-color: var(--brutal-yellow);
+}
+
+/* ─── Import Status ─── */
+.import-status {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border: var(--border-width) solid var(--border-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.import-status.status-error {
+  display: block;
+  background: var(--brutal-red);
+  color: var(--ink-primary);
+}
+
+.import-status.status-success {
+  display: block;
+  background: var(--brutal-lime);
+  color: var(--ink-black);
+}
+
+.import-status.status-info {
+  display: block;
+  background: var(--brutal-cyan);
+  color: var(--ink-black);
+}
+
+/* ─── Brutalist Form Groups ─── */
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--brutal-yellow);
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: var(--brutal-red);
+}
+
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: var(--radius-zero);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--ink-primary);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  outline: none;
+  box-shadow: inset 1px 1px 0 #000;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--brutal-yellow);
+  box-shadow: 0 0 0 1px var(--brutal-yellow), inset 1px 1px 0 #000;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.form-row-flags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  padding: 6px 10px;
+  background: var(--bg-input);
+  border: var(--border-width) solid var(--border-color);
+}
+
+.form-group-inline {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-group-inline label {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.form-group-inline select {
+  width: auto;
+  min-width: 110px;
+}
+
+/* Brutalist Chunky Checkbox */
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  user-select: none;
+}
+
+.toggle-label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-surface);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.toggle-label input[type="checkbox"]:checked {
+  background: var(--brutal-yellow);
+}
+
+.toggle-label input[type="checkbox"]:checked::after {
+  content: "X";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--ink-black);
+}
+
+.edit-error {
+  padding: 6px 10px;
+  background: var(--brutal-red);
+  color: var(--ink-primary);
+  border: var(--border-width) solid var(--border-color);
+  font-size: 0.78rem;
+  font-weight: 800;
+  display: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.edit-error.visible {
+  display: block;
+}
+
+/* ─── Brutalist Banner Toast Notifications ─── */
+.toast-container {
+  position: fixed;
+  bottom: 12px;
+  right: 14px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 6px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-surface);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+  pointer-events: auto;
+  border-left-width: 6px;
+}
+
+.toast-success {
+  border-left-color: var(--brutal-lime);
+}
+
+.toast-error {
+  border-left-color: var(--brutal-red);
+}
+
+.toast-info {
+  border-left-color: var(--brutal-cyan);
+}
+
+.toast-icon {
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+/* ─── Utilities ─── */
+.hidden {
+  display: none !important;
+}
+
+::selection {
+  background: var(--brutal-yellow);
+  color: var(--ink-black);
+}

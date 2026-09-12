@@ -1,0 +1,20 @@
+# Personal tokens & credentials (CRITICAL)
+token-personal.txt
+*token*.txt
+*.env
+*.env.*
+*.pem
+*.key
+*.pfx
+
+# Scratch & temporary artifacts
+scratch/
+temp/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/

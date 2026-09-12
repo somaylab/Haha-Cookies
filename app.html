@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haha Get</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ═══ Brutalist Header ═══ -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-icon" title="Haha Get Core">
+          <span class="logo-mark">H</span>
+        </div>
+        <div class="app-title-group">
+          <h1 class="app-title">Haha Get</h1>
+          <span class="app-title-tag">UTILITY</span>
+        </div>
+        <span class="domain-badge" id="domainBadge">—</span>
+      </div>
+      <div class="header-right">
+        <span class="entry-count" id="entryCount">0 ENTRIES</span>
+      </div>
+    </header>
+
+    <!-- ═══ Brutalist Toolbar ═══ -->
+    <div class="toolbar">
+      <div class="search-wrap">
+        <span class="search-prompt">&gt;</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="SEARCH_KEYWORD..." autocomplete="off" spellcheck="false">
+      </div>
+      <div class="toolbar-actions">
+        <button id="btnRefresh" class="btn btn-icon" title="Refresh">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+            <polyline points="23 4 23 10 17 10"/>
+            <polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+          </svg>
+        </button>
+        <button id="btnAddEntry" class="btn btn-icon" title="Add Entry">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <div class="btn-separator"></div>
+        <button id="btnExport" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M21 15v4H5v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export
+        </button>
+        <button id="btnImport" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M21 15v4H5v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          Import
+        </button>
+        <button id="btnClearAll" class="btn btn-danger">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14H7V6m3 0V4h4v2"/>
+          </svg>
+          Clear All
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ Brutalist Table Grid ═══ -->
+    <div class="table-container" id="tableContainer">
+      <table class="entry-table" id="entryTable">
+        <thead>
+          <tr>
+            <th class="th-name">NAME</th>
+            <th class="th-value">VALUE</th>
+            <th class="th-domain">DOMAIN</th>
+            <th class="th-path">PATH</th>
+            <th class="th-expires">EXPIRES</th>
+            <th class="th-flags">FLAGS</th>
+            <th class="th-actions">ACTION</th>
+          </tr>
+        </thead>
+        <tbody id="entryTableBody"></tbody>
+      </table>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-state-icon">!</div>
+        <p id="emptyStateTitle">// NO DATA FOUND</p>
+        <span class="empty-hint" id="emptyStateHint">Navigate to a target domain or adjust filter parameters.</span>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-state" id="loadingState">
+        <div class="spinner"></div>
+        <p>// SCANNING DATA...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ BRUTALIST MODALS ═══════════ -->
+
+  <!-- Export Modal -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>// EXPORT_DATA</h2>
+        <button class="modal-close" data-close="exportModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="format-tabs">
+          <button class="format-tab active" data-format="json">JSON</button>
+          <button class="format-tab" data-format="netscape">NETSCAPE</button>
+          <button class="format-tab" data-format="header">HEADER</button>
+          <button class="format-tab" data-format="base64">BASE64</button>
+        </div>
+        <textarea id="exportOutput" class="code-output" readonly spellcheck="false"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCopyExport" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+            <rect x="9" y="9" width="13" height="13"/>
+            <path d="M5 15H4V4h11v1"/>
+          </svg>
+          COPY
+        </button>
+        <button id="btnDownloadExport" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+            <path d="M21 15v4H5v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          DOWNLOAD
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import Modal -->
+  <div class="modal-overlay" id="importModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>// IMPORT_DATA</h2>
+        <button class="modal-close" data-close="importModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-hint">PASTE RAW DATA BELOW. SUPPORTS JSON, NETSCAPE, BASE64, AND HEADER STRING (name=value; ...). AUTO-DETECT ENABLED. HEADER STRINGS USE ACTIVE TAB DOMAIN.</p>
+        <textarea id="importInput" class="code-input" placeholder="// Paste raw data here..." spellcheck="false"></textarea>
+        <div class="import-status" id="importStatus"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnImportFile" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+            <path d="M14 2H6v20h12V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          LOAD FILE
+        </button>
+        <input type="file" id="importFileInput" accept=".json,.txt,.dat" hidden>
+        <button id="btnImportSubmit" class="btn btn-primary">IMPORT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit / Add Entry Modal -->
+  <div class="modal-overlay" id="editModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="editModalTitle">// EDIT_ENTRY</h2>
+        <button class="modal-close" data-close="editModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm" autocomplete="off">
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label for="editName">NAME <span class="required">*</span></label>
+              <input type="text" id="editName" required spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="editDomain">DOMAIN <span class="required">*</span></label>
+              <input type="text" id="editDomain" required spellcheck="false">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="editValue">VALUE</label>
+            <textarea id="editValue" rows="2" spellcheck="false"></textarea>
+          </div>
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label for="editPath">PATH</label>
+              <input type="text" id="editPath" value="/" spellcheck="false">
+            </div>
+            <div class="form-group">
+              <label for="editExpiry">EXPIRATION</label>
+              <input type="datetime-local" id="editExpiry">
+            </div>
+          </div>
+          <div class="form-row-flags">
+            <label class="toggle-label">
+              <input type="checkbox" id="editSecure">
+              <span>SECURE</span>
+            </label>
+            <label class="toggle-label">
+              <input type="checkbox" id="editHttpOnly">
+              <span>HTTPONLY</span>
+            </label>
+            <div class="form-group form-group-inline">
+              <label for="editSameSite">SAMESITE</label>
+              <select id="editSameSite">
+                <option value="unspecified">UNSPECIFIED</option>
+                <option value="lax">LAX</option>
+                <option value="strict">STRICT</option>
+                <option value="no_restriction">NONE</option>
+              </select>
+            </div>
+          </div>
+          <div class="edit-error" id="editError"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="btnEditSave" class="btn btn-primary">SAVE</button>
+        <button type="button" class="btn btn-secondary" data-close="editModal">CANCEL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Modal -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>// CONFIRM_ACTION</h2>
+        <button class="modal-close" data-close="confirmModal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirmMessage" style="font-weight: 800; font-size: 0.88rem; line-height: 1.5;">ARE YOU SURE YOU WANT TO CLEAR ALL ENTRIES FOR THIS DOMAIN?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btnConfirmYes" class="btn btn-danger">CONFIRM CLEAR</button>
+        <button class="btn btn-secondary" data-close="confirmModal">CANCEL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Toast Container ═══ -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="core/p-formatter.js"></script>
+  <script src="core/p-parser.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
